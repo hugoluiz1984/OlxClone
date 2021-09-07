@@ -6,6 +6,8 @@ import { Template } from './components/MainComponents';
 import Header from './components/partials/Header';
 import Footer from './components/partials/Footer';
 
+import './App.css';
+
 import Routes from './Routes';
 
 const Page = (props) => {
