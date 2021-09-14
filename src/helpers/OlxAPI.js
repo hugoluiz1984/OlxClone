@@ -127,7 +127,22 @@ const OlxAPI = {
             fData
         );
         return json;
-    }
+    },
+    getUser:async (token) => {
+        //fazer a consulta ao WB
+        const json = await apiFetchGet(
+            '/user/me',
+            {token}
+        );
+        return{json};
+    },
+    getUserAds:async (token) => {
+        const json = await apiFetchGet(
+            '/ad/<id>',
+            {token}
+        );
+        return{json};
+    },
 };
 
 export default () => OlxAPI;
