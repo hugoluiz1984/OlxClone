@@ -5,6 +5,7 @@ import { doLogin } from "../../helpers/AuthHandler";
 import AdItem from "../../components/partials/AdItem";
 import { Link } from "react-router-dom";
 import { useLocation, useHistory } from "react-router-dom";
+import Cookies from 'js-cookie';
 
 import { PageContainer, PageTitle, ErrorMessage } from "../../components/MainComponents";
 
@@ -35,10 +36,11 @@ const Page = () => {
 
     useEffect(()=> {
         const getRecentAds = async () => {
-            const json = await api.getUserAds({
+            let token = Cookies.get('token');
+            const json = await api.getAds({
                 sort:'desc',
                 limit:12 ,
-                q
+                token
             });
             setAdList(json.ads);
         }
